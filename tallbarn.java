@@ -40,7 +40,7 @@ public static int n;
 			tot+=num;
 			
 		}
-		out.println((long)((double)Math.round(ans)-(tot-k)*md));
+		out.println((long)((double)Math.round(ans-(k-tot)*md)));
 		out.close();
 	}
 	public static long bin(double x) {

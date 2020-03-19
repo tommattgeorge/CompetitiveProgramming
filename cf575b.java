@@ -11,7 +11,7 @@ static ArrayList<Integer>[] dir;
 static int[][] p;
 static int[] d;
 static int mod=1000000007;
-static long[] pow;
+static int[] pow;
 static int[] up;
 static boolean[] nup;
 static boolean[] ndn;
@@ -46,7 +46,7 @@ static int[] dn;
 		}
 		st=new StringTokenizer(bf.readLine());
 		int k=Integer.parseInt(st.nextToken());
-		pow=new long[k+2];
+		pow=new int[k+2];
 		pow[0]=1;
 		for(int i=1;i<k+2;i++) {
 			pow[i]=(pow[i-1]*2)%mod;
@@ -92,7 +92,7 @@ static int[] dn;
 		}
 	}
 	static int dfs2(int x, int p) {
-		long ans=0;
+		int ans=0;
 		for(int i:adj[x]) {
 			if(i!=p) {
 				ans=(ans+dfs2(i,x))%mod;
@@ -102,7 +102,7 @@ static int[] dn;
 		}
 		if(nup[x]) ans=(ans+pow[up[x]]-1)%mod;
 		if(ndn[x]) ans=(ans+pow[dn[x]]-1)%mod;
-		return (int)ans;
+		return ans;
 	}
 	static int lca(int a,int b)
 	{
